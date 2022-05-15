@@ -14,77 +14,93 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-/**
- * Servlet implementation class ComplainAPI
- */
-@WebServlet("/InquiryAPI")
-public class InquiryAPI extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	Inquiry inqobj = new Inquiry();
+	/**
+	 * Servlet implementation for InquiryAPI class
+	 */
+
+		@WebServlet("/InquiryAPI")
+		public class InquiryAPI extends HttpServlet {
+			private static final long serialVersionUID = 1L;
+			
+			Inquiry inqobj = new Inquiry();
 	
 	
        
+			
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InquiryAPI() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	
+	    public InquiryAPI() {
+	        super();
+	        // TODO Auto-generated constructor stub
+	    }
+	    
+	    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+	    
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			// TODO Auto-generated method stub
+			response.getWriter().append("Served at: ").append(request.getContextPath());
+		}
+		
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		String output = inqobj.insertInquiry(
-				request.getParameter("combox"),
-				request.getParameter("comDate"),
-				request.getParameter("Userid"));
+		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			// TODO Auto-generated method stub
+			
+			String output = inqobj.insertInquiry(
+					request.getParameter("combox"),
+					request.getParameter("comDate"),
+					request.getParameter("Userid"));
+	
+			response.getWriter().write(output);
+		}
 
-		response.getWriter().write(output);
-	}
-
+		
+		
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
 	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		Map paras = getParasMap(request); 
-		String output = inqobj.updateInquiry( 
-				paras.get("combox").toString(), 
-				paras.get("comDate").toString(),
-				paras.get("Userid").toString(),
-				paras.get("hidcomIDSave").toString()); 
+		protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			// TODO Auto-generated method stub
+			
+			Map paras = getParasMap(request); 
+			String output = inqobj.updateInquiry( 
+					paras.get("combox").toString(), 
+					paras.get("comDate").toString(),
+					paras.get("Userid").toString(),
+					paras.get("hidcomIDSave").toString()); 
+			
+			response.getWriter().write(output);
+		}
 		
-		response.getWriter().write(output);
-	}
+		
 
 	/**
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		Map paras = getParasMap(request);
-		String output = inqobj.deleteInquiry(paras.get("comId").toString());
-		
-		response.getWriter().write(output); 
-		
-	}
+		protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			// TODO Auto-generated method stub
+			
+			Map paras = getParasMap(request);
+			String output = inqobj.deleteInquiry(paras.get("comId").toString());
+			
+			response.getWriter().write(output); 
+			
+		}
 	
-	// Convert request parameters to a Map
+		
+		// Converting request paras to a map
+		
 		private static Map getParasMap(HttpServletRequest request) 
 		{ 
 		 Map<String, String> map = new HashMap<String, String>(); 

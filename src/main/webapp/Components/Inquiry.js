@@ -4,13 +4,17 @@ $(document).ready(function() {
 });
 
 $(document).on("click", "#btnSave", function(event) {
-	// Clear status msges---------------------
+	
+	// Clear status msges
 	$("#alertSuccess").text("");
 	$("#alertSuccess").hide();
 	$("#alertError").text("");
 	$("#alertError").hide();
+	
+	
 
-	// Form validation-------------------
+	// Form validation
+	
 	var status = validateComplaintForm();
 	// If not valid
 	if (status != true) {
@@ -19,7 +23,9 @@ $(document).on("click", "#btnSave", function(event) {
 		return;
 	} 
 	
-	//if valid
+	
+	//if form is valid
+	
 	var type = ($("#hidcomIDSave").val() == "") ? "POST" : "PUT";
 	$.ajax(
 	{
@@ -37,6 +43,7 @@ $(document).on("click", "#btnSave", function(event) {
 	
 
 });
+
 
 function onComplainSaveComplete(response, status) 
 { 
@@ -68,7 +75,10 @@ function onComplainSaveComplete(response, status)
 		$("#Complaint")[0].reset(); 
 }
 
-//Update-------
+
+
+//Update
+
 $(document).on("click", ".btnUpdate", function(event)
 	{
 		$("#hidcomIDSave").val($(this).data("itemid"));
@@ -77,7 +87,10 @@ $(document).on("click", ".btnUpdate", function(event)
 		$("#Userid").val($(this).closest("tr").find('td:eq(3)').text()); 
 	});
 
-//delete	
+
+
+//delete
+	
 $(document).on("click", ".btnRemove", function(event) {
 
 	
@@ -125,13 +138,18 @@ if (status == "success")
 
 
 function validateComplaintForm() {
+	
 	//Validations 
 	//USER ID
+	
 	if ($("#Userid").val().trim() == "") {
 		return "Insert User ID!";
 	}
 
-	//COMPLAINT
+
+
+	//Inquiry or Complain
+	
 	if ($("#combox").val().trim() == "") {
 		return "PLease Insert Complaint!";
 	}
