@@ -26,7 +26,7 @@ public class Inquiry {
 				
 				
 				//for the testing of the db connectivity
-				System.out.print("Succesfully connected to the DB");
+				System.out.print("Succesfully connected to the Database");
 				
 			}catch(Exception e)
 			{
@@ -51,7 +51,7 @@ public class Inquiry {
 				Connection con = connect();
 				
 				if(con == null)
-				{return "Error while connecting to the database for inserting.";}
+				{return "Error while connecting to the DB for inserting data.";}
 				
 				
 					//create a prepared statement 
@@ -70,7 +70,7 @@ public class Inquiry {
 					preparedStmt.setString(4, UID);
 					
 					if((desc.matches(comEmpty))){
-						output = "Description should not be Empty!";
+						output = "Please fill the Description box!";
 					}else {
 					
 						
@@ -89,7 +89,7 @@ public class Inquiry {
 					}catch(Exception e)
 					{
 						output = "{\"status\":\"error\", \"data\": "
-								+ "\"Error while inserting the Complaints.\"}"; 
+								+ "\"Error while inserting the Inquiry.\"}"; 
 						 System.err.println(e.getMessage()); 
 					}
 					return output;
@@ -110,7 +110,7 @@ public class Inquiry {
 						
 						if(con == null)
 						{
-							return "Error while connecting to the database for Reading.";}
+							return "Error while connecting to the DB for Reading.";}
 						
 						
 						
@@ -167,7 +167,7 @@ public class Inquiry {
 					
 					catch(Exception e)
 					{
-						output = "Error while Reading the Complains ."; 
+						output = "Error while Reading the Inquiries ."; 
 						System.err.println(e.getMessage());
 					}
 					return output;
@@ -186,7 +186,7 @@ public class Inquiry {
 							Connection con = connect();
 							
 							if(con == null)
-							{return "Error while connecting to the database for Updating.";}
+							{return "Error while connecting to the DB for Updating.";}
 							
 							
 							
@@ -221,7 +221,7 @@ public class Inquiry {
 							}catch(Exception e)
 							{
 								output = "{\"status\":\"error\", \"data\": "
-										+ "\"Error while Updating the Complaints.\"}"; 
+										+ "\"Error while Updating the Inquiries.\"}"; 
 								 System.err.println(e.getMessage()); 
 							}
 							return output;
@@ -243,7 +243,7 @@ public class Inquiry {
 							Connection con = connect();
 							
 							if(con == null) 
-							{return "Error while connecting to the database for deleting.";}
+							{return "Error while connecting to the DB for deleting.";}
 							
 							
 							//create a prepared statement
@@ -272,7 +272,7 @@ public class Inquiry {
 						}
 						catch(Exception e) {
 							output = "{\"status\":\"error\", \"data\": "
-									+ "\"Error while Deleting the Complaints.\"}"; 
+									+ "\"Error while Deleting the Inquiries.\"}"; 
 							 System.err.println(e.getMessage()); 
 						}
 						

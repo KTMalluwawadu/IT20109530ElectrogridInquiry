@@ -10,7 +10,7 @@ Class.forName("com.mysql.cj.jdbc.Driver");
 <head>
 <meta charset="ISO-8859-1">
 
-	<title>ElectroGrid-Inquiry</title>
+	<title>ElectroGrid-Inquiries</title>
 	<link rel="stylesheet" href="View/bootstrap.min.css">
 	<script src="Components/jquery.min.js"></script>
 	<script src="Components/Inquiry.js"></script>

@@ -53,7 +53,7 @@ function onComplainSaveComplete(response, status)
 		
 		if(resultSet.status.trim() == "success")
 		{
-			$("#alertSuccess").text("Successfully saved."); 
+			$("#alertSuccess").text("Successfully Saved the Inquiry/ Complain."); 
 			$("#alertSuccess").show(); 
 			
 			$("#comGrid").html(resultSet.data); 
@@ -115,7 +115,7 @@ if (status == "success")
  var resultSet = JSON.parse(response); 
  if (resultSet.status.trim() == "success") 
  { 
- $("#alertSuccess").text("Successfully deleted."); 
+ $("#alertSuccess").text("Successfully Deleted the Inquiry/ Complain."); 
  $("#alertSuccess").show(); 
  $("#comGrid").html(resultSet.data); 
  } else if (resultSet.status.trim() == "error") 
@@ -151,7 +151,7 @@ function validateComplaintForm() {
 	//Inquiry or Complain
 	
 	if ($("#combox").val().trim() == "") {
-		return "PLease Insert Complaint!";
+		return "Please insert the Inquiry or Complain!";
 	}
 
 	return true;
